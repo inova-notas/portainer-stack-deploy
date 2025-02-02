@@ -42,8 +42,6 @@ describe('deployStack', () => {
         swarmID: 's4ny2nh7qt8lluhvddeu9ulwl'
       })
       .query({
-        type: 1,
-        method: 'string',
         endpointId: 1
       })
       .reply(200)
@@ -72,8 +70,6 @@ describe('deployStack', () => {
           "version: '3.7'\n\nservices:\n  server:\n    image: ghcr.io/username/repo:sha-0142c14\n    deploy:\n      update_config:\n        order: start-first\n"
       })
       .query({
-        type: 2,
-        method: 'string',
         endpointId: 1
       })
       .reply(200)
@@ -154,8 +150,6 @@ describe('deployStack', () => {
           "version: '3.7'\n\nservices:\n  server:\n    image: ghcr.io/username/repo:sha-0142c14\n    deploy:\n      update_config:\n        order: start-first\n"
       })
       .query({
-        type: 2,
-        method: 'string',
         endpointId: 2
       })
       .reply(200)
@@ -183,8 +177,6 @@ describe('deployStack', () => {
           "version: '3.7'\n\nservices:\n  server:\n    image: ghcr.io/username/repo:latest\n    deploy:\n      update_config:\n        order: start-first\n"
       })
       .query({
-        type: 2,
-        method: 'string',
         endpointId: 1
       })
       .reply(200)
@@ -211,8 +203,6 @@ describe('deployStack', () => {
           "version: '3.7'\n\nservices:\n  server:\n    image: ghcr.io/testUsername/repo:latest\n    deploy:\n      update_config:\n        order: start-first\n"
       })
       .query({
-        type: 2,
-        method: 'string',
         endpointId: 1
       })
       .reply(200)

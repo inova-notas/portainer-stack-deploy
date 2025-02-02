@@ -3,6 +3,7 @@ import path from 'path'
 import fs from 'fs'
 import Handlebars from 'handlebars'
 import * as core from '@actions/core'
+import { stringify } from 'querystring'
 
 type DeployStack = {
   portainerHost: string
@@ -14,11 +15,6 @@ type DeployStack = {
   stackDefinitionFile: string
   templateVariables?: object
   image?: string
-}
-
-enum StackType {
-  SWARM = 1,
-  COMPOSE = 2
 }
 
 function generateNewStackDefinition(
@@ -96,8 +92,6 @@ export async function deployStack({
       core.info('Deploying new stack...')
       await portainerApi.createStack(
         {
-          type: swarmId ? StackType.SWARM : StackType.COMPOSE,
-          method: 'string',
           endpointId
         },
         {
@@ -110,6 +104,7 @@ export async function deployStack({
     }
   } catch (error) {
     core.info('⛔️ Something went wrong during deployment!')
+    core.info(stringify.apply(error))
     throw error
   } finally {
     core.info(`Logging out from Portainer instance...`)

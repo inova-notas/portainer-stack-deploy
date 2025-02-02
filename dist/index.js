@@ -83,11 +83,7 @@ const path_1 = __importDefault(__nccwpck_require__(1017));
 const fs_1 = __importDefault(__nccwpck_require__(7147));
 const handlebars_1 = __importDefault(__nccwpck_require__(7492));
 const core = __importStar(__nccwpck_require__(2186));
-var StackType;
-(function (StackType) {
-    StackType[StackType["SWARM"] = 1] = "SWARM";
-    StackType[StackType["COMPOSE"] = 2] = "COMPOSE";
-})(StackType || (StackType = {}));
+const querystring_1 = __nccwpck_require__(3477);
 function generateNewStackDefinition(stackDefinitionFile, templateVariables, image) {
     const stackDefFilePath = path_1.default.join(process.env.GITHUB_WORKSPACE, stackDefinitionFile);
     core.info(`Reading stack definition file from ${stackDefFilePath}`);
@@ -133,8 +129,6 @@ async function deployStack({ portainerHost, username, password, swarmId, endpoin
         else {
             core.info('Deploying new stack...');
             await portainerApi.createStack({
-                type: swarmId ? StackType.SWARM : StackType.COMPOSE,
-                method: 'string',
                 endpointId
             }, {
                 name: stackName,
@@ -146,6 +140,7 @@ async function deployStack({ portainerHost, username, password, swarmId, endpoin
     }
     catch (error) {
         core.info('⛔️ Something went wrong during deployment!');
+        core.info(querystring_1.stringify.apply(error));
         throw error;
     }
     finally {
@@ -16807,6 +16802,14 @@ module.exports = require("os");
 
 "use strict";
 module.exports = require("path");
+
+/***/ }),
+
+/***/ 3477:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("querystring");
 
 /***/ }),
 
