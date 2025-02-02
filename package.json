@@ -1,8 +1,8 @@
 {
-  "name": "portainer-stack-deploy",
+  "name": "easy-portainer-stack-deploy",
   "version": "1.0.0",
   "description": "Github Action to deploy a stack to a Portainer instance",
-  "author": "Carl Rygart <carlrygart>",
+  "author": "Carl Rygart <carlrygart>, Hederson Boechat <hederson>",
   "license": "MIT",
   "main": "lib/main.js",
   "keywords": [

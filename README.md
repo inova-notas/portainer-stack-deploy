@@ -24,7 +24,7 @@ Portainer-stack-deploy is a GitHub Action for deploying a newly updated stack to
 
 ## Example
 
-The example below shows how the `portainer-stack-deploy` action can be used to deploy a fresh version of your app to Portainer using ghcr.io.
+The example below shows how the `easy-portainer-stack-deploy` action can be used to deploy a fresh version of your app to Portainer using ghcr.io.
 
 ```yaml
 name: Deploy
@@ -72,7 +72,7 @@ jobs:
         shell: bash
 
       - name: Deploy stack to Portainer
-        uses: carlrygart/portainer-stack-deploy@v1
+        uses: inova-notas/easy-portainer-stack-deploy@v1
         with:
           portainer-host: ${{ secrets.PORTAINER_HOST }}
           username: ${{ secrets.PORTAINER_USERNAME }}
