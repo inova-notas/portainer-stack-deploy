@@ -1,6 +1,6 @@
-name: 'Deploy a Portainer stack'
+name: 'Easy Portainer stack deploy'
 description: 'Github Action to deploy a stack to a Portainer instance'
-author: 'Carl Rygart <carlrygart>'
+author: 'Carl Rygart <carlrygart>, Hederson Boechat'
 branding:
   icon: 'cloud'
   color: 'blue'
